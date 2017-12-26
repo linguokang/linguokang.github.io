@@ -11,7 +11,7 @@ comments: "false"
 	<!--<a class="photos-btn" target="_blank" href="http://litten.me/gallery/">摄影</a>-->
 </div>
 <div class="instagram itemscope">
-	<a href="https://www.instagram.com/litten225/" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a>
+	<a href="https://www.instagram.com/litten225/" target="_blank" class="open-ins">图片来自github，正在加载中…</a>
 </div>
 <script>
   (function() {
@@ -22,6 +22,7 @@ comments: "false"
     }
     setTimeout(function() {
       loadScript('./ins.js')
+
     }, 0)
   })()
 
@@ -37,14 +38,23 @@ comments: "false"
       for(var j=0;j<imgss.length;j++){
           (function(j) {
               var img = new Image();
+                function setWH(){
+                    var w = img.width*10;
+                    var h =img.height*10;
+                    var parentN = imgss[j][0].parentNode
+                    parentN.setAttribute("data-size",w+"x"+h);
+                }
+
+              img.addEventListener('load' , function(){
+                  setWH()
+              } , false);
               img.src = imgss[j][0].attributes["data-src"].nodeValue;
-              img.onload = function(){
-                  var w = img.width;
-                  var h =img.height;
-                  var parentN = imgss[j][0].parentNode
-                  parentN.setAttribute("data-size",w+"x"+h);
-              };
+              if(img.complete){
+                  //如果图片已经存在于浏览器缓存,直接调用回调函数
+                  setWH()
+              }
           })(j)
       }
   };
+
 </script>
