@@ -2,6 +2,7 @@
 title: vuex总结
 date: 2017-12-16 10:54:00
 tags:
+  - vuex
 ---
 
 ### vuex是干什么的？

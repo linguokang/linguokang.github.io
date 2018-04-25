@@ -2,6 +2,7 @@
 title: (转载)基于webpack的前端工程化开发之多页站点
 date: 2017-12-26 15:48:57
 tags:
+    - webpack
 ---
 <article class="markdown-body entry-content" itemprop="text"><h2><a href="#基于webpack的前端工程化开发之多页站点篇一" aria-hidden="true" class="anchor" id="user-content-基于webpack的前端工程化开发之多页站点篇一"></a></h2>
 <p>在最初接触webpack的较长一段时间里，我（也可能很多人）都觉得webpack是专为单页应用而量身打造的，比如webpack+react、webpack+vue等，都可以近乎完美的解决各种资源的依赖加载、打包的问题。甚至css都是打包在js里去动态添加到dom文档中去。</p>
