@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vuex总结 | 国康的博客</title>
+  <title>Tag: ci/cd | 国康的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="vuex是干什么的？一句话总结起来就是：解决不同组件之间通信的问题。">
-<meta name="keywords" content="vuex">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vuex总结">
-<meta property="og:url" content="http://yoursite.com/2017/12/16/vuex/index.html">
+  <meta name="description" content="做自己爱做的事，爱自己在做的事！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="国康的博客">
+<meta property="og:url" content="http://yoursite.com/tags/ci-cd/index.html">
 <meta property="og:site_name" content="国康的博客">
-<meta property="og:description" content="vuex是干什么的？一句话总结起来就是：解决不同组件之间通信的问题。">
+<meta property="og:description" content="做自己爱做的事，爱自己在做的事！">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-27T08:41:45.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vuex总结">
-<meta name="twitter:description" content="vuex是干什么的？一句话总结起来就是：解决不同组件之间通信的问题。">
+<meta name="twitter:title" content="国康的博客">
+<meta name="twitter:description" content="做自己爱做的事，爱自己在做的事！">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -173,226 +171,65 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vuex" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/10/28/gitlab-ci/" class="archive-article-date">
+        <time datetime="2019-10-27T17:48:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+
+        </div>
+    	 
   
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2019/10/28/gitlab-ci/" target="_blank">开始GitLab CI/CD</a>
   
-    <h1 class="article-title" itemprop="name">
-      vuex总结
     </h1>
   
 
 
-  
-  
-<a href="/2017/12/16/vuex/" class="archive-article-date">
-        <time datetime="2017-12-16T02:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="vuex是干什么的？"><a href="#vuex是干什么的？" class="headerlink" title="vuex是干什么的？"></a>vuex是干什么的？</h3><p>一句话总结起来就是：解决不同组件之间通信的问题。</p>
-<a id="more"></a>
-<p>组件之间的作用域独立，而组件之间经常又需要传递数据。<br>A 为父组件，下面有子组件 B 和 C。<br>A 的数据可以通过 props 传递给 B 和 C。<br>A 可以通过 $broadcast 调用 B 和 C 的 events，从而操作 B 和 C 的数据。<br>B 和 C 可以通过 $dispatch 调用 A 的 events，从而操作 A 的数据。<br>当 B 需要操作 C 的数据就会比较麻烦，需要先 $dispatch 到 A，再 $broadcast 到 C。<br>如果项目比较小的话还好，越大的项目，涉及的组件通信就越多、越频繁，此时管理起来就会非常累，而且容易出错。<br>这就是 Vuex 的意义所在。它可以将数据置于单独的一层，并提供给外部操作内部数据的方法。粗俗一点，就这样理解吧。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p> 直接下载 / CDN 引用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"/path/to/vue.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"/path/to/vuex.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p> NPM</p>
-<blockquote>
-<p>npm install vuex –save</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span></span><br><span class="line">import Vuex from <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
-<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><p>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的全局对象有以下两点不同：</p>
-<ul>
-<li><p>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</p>
-</li>
-<li><p>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。</p>
-</li>
-</ul>
-<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>单一状态树，每个应用将仅仅包含一个 store 实例。</p>
-<p>那么怎么在在 Vue 组件中获得 Vuex 的状态呢？</p>
-<p>Vuex 通过 store 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 Vue.use(Vuex)）：</p>
-<p>通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到。</p>
-<h3 id="mapState-辅助函数"><a href="#mapState-辅助函数" class="headerlink" title="mapState 辅助函数"></a>mapState 辅助函数</h3><p>当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。使用mapState批量获取store.state的值</p>
-<h3 id="Getter"><a href="#Getter" class="headerlink" title="Getter"></a>Getter</h3><p>getters从表面是获得的意思，可以把他看作在获取数据之前进行的一种再编辑,相当于对数据的一个过滤和加工。你可以把它看作store.js的计算属性。</p>
-<p>Getter 会暴露为 store.getters 对象</p>
-<h3 id="mapGetters-辅助函数"><a href="#mapGetters-辅助函数" class="headerlink" title="mapGetters 辅助函数"></a>mapGetters 辅助函数</h3><p>mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性，和mapState类似。</p>
-<h3 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h3><p>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。</p>
-<p>要提交一个mutation，你需要以相应的 type 调用 store.commit 方法。</p>
-<h3 id="提交载荷（Payload）"><a href="#提交载荷（Payload）" class="headerlink" title="提交载荷（Payload）"></a>提交载荷（Payload）</h3><p>你可以向 store.commit 传入额外的参数，即 mutation 的 载荷（payload）：</p>
-<p>定义<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  increment (state, payload) &#123;</span><br><span class="line">    state.count += payload.amount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">store.commit(<span class="string">'increment'</span>, &#123;</span><br><span class="line">  amount: 10</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="actions异步修改状态"><a href="#actions异步修改状态" class="headerlink" title="actions异步修改状态"></a>actions异步修改状态</h3><p>actions和之前讲的Mutations功能基本一样，不同点是，actions是异步的改变state状态，而Mutations是同步改变状态。Action 提交的是 mutation，而不是直接变更状态。</p>
-<h4 id="分发-Action"><a href="#分发-Action" class="headerlink" title="分发 Action"></a>分发 Action</h4><p>Action 通过 store.dispatch 方法触发</p>
-<blockquote>
-<p>store.dispatch(‘increment’)</p>
-</blockquote>
-<p>Actions 支持同样的载荷方式和对象方式进行分发：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 以载荷形式分发</span><br><span class="line">store.dispatch(<span class="string">'incrementAsync'</span>, &#123;</span><br><span class="line">  amount: 10</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在组件中使用 this.$store.dispatch(‘xxx’) 分发 action，或者使用 mapActions 辅助函数将组件的 methods 映射为 store.dispatch 调用（需要先在根节点注入 store）</p>
-<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>├── index.html<br>├── main.js<br>├── api<br>│   └── … # 抽取出API请求<br>├── components<br>│   ├── App.vue<br>│   └── …<br>└── store<br>    ├── index.js          # 我们组装模块并导出 store 的地方<br>    ├── actions.js        # 根级别的 action<br>    ├── mutations.js      # 根级别的 mutation<br>    └── modules<br>        ├── cart.js       # 购物车模块<br>        └── products.js   # 产品模块</p>
-<p>官方文档：<a href="https://vuex.vuejs.org/zh-cn/intro.html" target="_blank" rel="noopener">https://vuex.vuejs.org/zh-cn/intro.html</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vuex</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ci/cd</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/16/vuex/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2017/12/23/wxapp/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          微信小程序框架——wepy
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/12/01/vuePlug/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue插件开发</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -421,9 +258,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
