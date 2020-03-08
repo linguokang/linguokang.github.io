@@ -80,6 +80,8 @@ deploy:
   type: git
   repo: git@github.com:linguokang/linguokang.github.io.git
   branch: master
+  name: linguokang
+  email: 595332720@qq.com
 
 jsonContent:
     meta: false
