@@ -12,7 +12,7 @@ tags:
 *   Render Props 的应用
 *   什么是 React Hooks
 *   React Hooks 的应用
-*   总结.
+*   总结
 
 <!-- more -->
 
