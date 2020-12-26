@@ -6,36 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>flex弹性布局 | 国康的博客</title>
+  <title>【阅读笔记】微前端 | 国康的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一、简要介绍css3最喜欢的新属性之一便是flex布局属性，用六个字概括便是简单、方便、快速。 flex（ flexible box：弹性布局盒模型）,是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：">
+  <meta name="description" content="什么是微前端？微前端（Micro-Frontends）是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。各个前端应用还可以独立运行、独立开发、独立部署。微前端不是单纯的前端框架或者工具，而是一套架构体系">
+<meta name="keywords" content="阅读笔记,微前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex弹性布局">
-<meta property="og:url" content="http://yoursite.com/2017/11/24/flex/index.html">
+<meta property="og:title" content="【阅读笔记】微前端">
+<meta property="og:url" content="http://yoursite.com/2020/12/27/weiqianduan/index.html">
 <meta property="og:site_name" content="国康的博客">
-<meta property="og:description" content="一、简要介绍css3最喜欢的新属性之一便是flex布局属性，用六个字概括便是简单、方便、快速。 flex（ flexible box：弹性布局盒模型）,是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：">
+<meta property="og:description" content="什么是微前端？微前端（Micro-Frontends）是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。各个前端应用还可以独立运行、独立开发、独立部署。微前端不是单纯的前端框架或者工具，而是一套架构体系">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/2.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/1.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/3.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/5.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/4.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/6.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/7.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/8.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/9.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/10.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/11.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/12.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/13.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/24/flex/14.png">
-<meta property="og:updated_time" content="2019-10-27T08:41:45.160Z">
+<meta property="og:image" content="http://yoursite.com/2020/12/27/weiqianduan/1721766ee9a543cf.webp">
+<meta property="og:image" content="http://yoursite.com/2020/12/27/weiqianduan/1722065f24632ddb.webp">
+<meta property="og:updated_time" content="2020-12-26T19:01:14.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex弹性布局">
-<meta name="twitter:description" content="一、简要介绍css3最喜欢的新属性之一便是flex布局属性，用六个字概括便是简单、方便、快速。 flex（ flexible box：弹性布局盒模型）,是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/24/flex/2.png">
+<meta name="twitter:title" content="【阅读笔记】微前端">
+<meta name="twitter:description" content="什么是微前端？微前端（Micro-Frontends）是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。各个前端应用还可以独立运行、独立开发、独立部署。微前端不是单纯的前端框架或者工具，而是一套架构体系">
+<meta name="twitter:image" content="http://yoursite.com/2020/12/27/weiqianduan/1721766ee9a543cf.webp">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -187,22 +176,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flex" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-weiqianduan" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      flex弹性布局
+      【阅读笔记】微前端
     </h1>
   
 
 
   
   
-<a href="/2017/11/24/flex/" class="archive-article-date">
-        <time datetime="2017-11-24T08:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+<a href="/2020/12/27/weiqianduan/" class="archive-article-date">
+        <time datetime="2020-12-26T18:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-27</time>
 </a>
 
   
@@ -215,7 +204,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.4k字</span>
+      <span class="post-count">1.7k字</span>
     </span>
   </span>
 
@@ -235,114 +224,67 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="一、简要介绍"><a href="#一、简要介绍" class="headerlink" title="一、简要介绍"></a>一、简要介绍</h2><p>css3最喜欢的新属性之一便是flex布局属性，用六个字概括便是简单、方便、快速。</p>
-<p>flex（ flexible box：弹性布局盒模型）,是2009年w3c提出的一种可以简洁、快速弹性布局的属性。<br>主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：</p>
+    <h3 id="什么是微前端？"><a href="#什么是微前端？" class="headerlink" title="什么是微前端？"></a>什么是微前端？</h3><p>微前端（Micro-Frontends）是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。各个前端应用还可以独立运行、独立开发、独立部署。微前端不是单纯的前端框架或者工具，而是一套架构体系</p>
 <a id="more"></a>
-<p><img src="/2017/11/24/flex/./2.png" alt="Alt text"></p>
-<p>其中在webkit内核的浏览器中使用时，必须加上-webkit-前缀</p>
-<p>下图为flex的相关概念的示意图</p>
-<p><img src="/2017/11/24/flex/./1.png" alt="Alt text"></p>
-<p>使用flex布局的容器（flex container），它内部的元素自动成为flex项目（flex item）。<br>容器拥有两根隐形的轴，水平的主轴（main axis），和竖直的交叉轴。<br>主轴开始的位置，即主轴与右边框的交点，称为main start；主轴结束的位置称为main end；<br>交叉轴开始的位置称为cross start；交叉轴结束的位置称为cross end。<br>item按主轴或交叉轴排列，item在主轴方向上占据的宽度称为main size，在交叉轴方向上占据的宽度称为cross size。</p>
-<p>此外，需注意使用flex容器内元素，即flex item的float，clear、vertical-align属性将失效。</p>
-<h2 id="二、属性总结表"><a href="#二、属性总结表" class="headerlink" title="二、属性总结表"></a>二、属性总结表</h2><p><img src="/2017/11/24/flex/./3.png" alt="Alt text"></p>
-<h2 id="三、容器属性详述"><a href="#三、容器属性详述" class="headerlink" title="三、容器属性详述"></a>三、容器属性详述</h2><h3 id="1-flex-direction"><a href="#1-flex-direction" class="headerlink" title="1.flex-direction"></a>1.flex-direction</h3><p>决定主轴的方向，即项目排列的方向，有四个可能的值：row(默认)|row-reverse|column|column-reverse</p>
+<h3 id="实现微前端有哪些方案"><a href="#实现微前端有哪些方案" class="headerlink" title="实现微前端有哪些方案"></a>实现微前端有哪些方案</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>描述</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nginx路由转发</td>
+<td>通过Nginx配置反向代理来实现不同路径映射到不同应用，例如<a href="http://www.abc.com/app1对应app1，www.abc.com/app2对应app2，这种方案本身并不属于前端层面的改造，更多的是运维的配置。" target="_blank" rel="noopener">www.abc.com/app1对应app1，www.abc.com/app2对应app2，这种方案本身并不属于前端层面的改造，更多的是运维的配置。</a></td>
+<td>简单，快速，易配置</td>
+<td>在切换应用时会触发浏览器刷新，影响体验</td>
+</tr>
+<tr>
+<td>iframe嵌套</td>
+<td>父应用单独是一个页面，每个子应用嵌套一个iframe，父子通信可采用postMessage或者contentWindow方式</td>
+<td>实现简单，子应用之间自带沙箱，天然隔离，互不影响</td>
+<td>iframe的样式显示、兼容性等都具有局限性；太过简单而显得low</td>
+</tr>
+<tr>
+<td>Web Components</td>
+<td>每个子应用需要采用纯Web Components技术编写组件，是一套全新的开发模式</td>
+<td>每个子应用拥有独立的script和css，也可单独部署</td>
+<td>对于历史系统改造成本高，子应用通信较为复杂易踩坑</td>
+</tr>
+<tr>
+<td>组合式应用路由分发</td>
+<td>每个子应用独立构建和部署，运行时由父应用来进行路由管理，应用加载，启动，卸载，以及通信机制</td>
+<td>纯前端改造，体验良好，可无感知切换，子应用相互隔离</td>
+<td>需要设计和开发，由于父子应用处于同一页面运行，需要解决子应用的样式冲突，变量对象污染，通信机制等技术点</td>
+</tr>
+</tbody>
+</table>
+<p>组合式应用路由分发方案改造成本中等并且能满足大部分需求，也不影响各前端应用的体验，是当下各个业务普遍采用的一种方案</p>
+<h3 id="微前端由哪些模块组成"><a href="#微前端由哪些模块组成" class="headerlink" title="微前端由哪些模块组成"></a>微前端由哪些模块组成</h3><p>当下微前端主要采用的是组合式应用路由方案，该方案的核心是“主从”思想，即包括一个基座（MainApp）应用和若干个微（MicroApp）应用，基座应用大多数是一个前端SPA项目，主要负责应用注册，路由映射，消息下发等，而微应用是独立前端项目，这些项目不限于采用React，Vue，Angular或者JQuery开发，每个微应用注册到基座应用中，由基座进行管理，但是如果脱离基座也是可以单独访问，基本的流程如下图所示：<br><img src="/2020/12/27/weiqianduan/./1721766ee9a543cf.webp" alt="Alt text"></p>
+<p>一个微前端的基座框架需要解决以下问题：</p>
 <ul>
-<li><p>row:主轴为水平方向，项目沿主轴从左至右排列</p>
-</li>
-<li><p>column：主轴为竖直方向，项目沿主轴从上至下排列</p>
-</li>
-<li><p>row-reverse：主轴水平，项目从右至左排列，与row反向</p>
-</li>
-<li><p>column-reverse：主轴竖直，项目从下至上排列，与column反向</p>
-</li>
+<li>路由切换的分发问题。</li>
+<li>主微应用的隔离问题。</li>
+<li>通信问题。</li>
 </ul>
-<p><img src="/2017/11/24/flex/./5.png" alt="Alt text"></p>
-<p><img src="/2017/11/24/flex/./4.png" alt="Alt text"></p>
-<h3 id="2、flex-wrap"><a href="#2、flex-wrap" class="headerlink" title="2、flex-wrap"></a>2、flex-wrap</h3><p>默认情况下，item排列在一条线上，即主轴上，flex-wrap决定当排列不下时是否换行以及换行的方式，可能的值nowrap(默认)|wrap|wrap-reverse</p>
-<ul>
-<li><p>nowrap：自动缩小项目，不换行</p>
-</li>
-<li><p>wrap：换行，且第一行在上方</p>
-</li>
-<li><p>wrap-reverse：换行，第一行在下面</p>
-</li>
+<h3 id="微前端的路由分发"><a href="#微前端的路由分发" class="headerlink" title="微前端的路由分发"></a>微前端的路由分发</h3><p>基座应用,是整个应用的入口,一般是由以下几步构成：</p>
+<ol>
+<li>要想展示微应用的页面,要能先拉取到微应用的页面内容， 这就需要远程拉取机制。</li>
+<li>远程拉取机制通常会采用fetch API来首先获取到微应用的HTML内容，然后通过解析将微应用的JavaScript和CSS进行抽离，采用eval方法来运行JavaScript，并将CSS和HTML内容append到基座应用中留给微应用的展示区域，当微应用切换走时，同步卸载这些内容，这就构成的当前应用的展示流程。</li>
+<li>而目前针对远程拉取机制这套流程，已有现成的库来实现，可以参考<a href="https://www.npmjs.com/package/import-html-entry" target="_blank" rel="noopener">import-html-entry</a>。</li>
+</ol>
+<p>对于路由分发而言，以采用vue-router开发的基座SPA应用来举例，主要是下面这个流程：</p>
+<p>当浏览器的路径变化后，vue-router会监听hashchange或者popstate事件，从而获取到路由切换的时机。<br>最先接收到这个变化的是基座的router，通过查询注册信息可以获取到转发到那个微应用，经过一些逻辑处理后，采用修改hash方法或者pushState方法来路由信息推送给微应用的路由，微应用可以是手动监听hashchange或者popstate事件接收，或者采用React-router，vue-router接管路由，后面的逻辑就由微应用自己控制。</p>
+<h3 id="微前端的应用隔离"><a href="#微前端的应用隔离" class="headerlink" title="微前端的应用隔离"></a>微前端的应用隔离</h3><p><strong>CSS隔离</strong>：当主应用和微应用同屏渲染时，就可能会有一些样式会相互污染，如果要彻底隔离CSS污染，可以采用CSS Module 或者命名空间的方式，给每个微应用模块以特定前缀，即可保证不会互相干扰，可以采用webpack的postcss插件，在打包时添加特定的前缀。<br>而对于微应用与微应用之间的CSS隔离就非常简单，在每次应用加载时，将该应用所有的link和style 内容进行标记。在应用卸载后，同步卸载页面上对应的link和style即可。</p>
+<p><strong>JavaScript隔离</strong>：每当微应用的JavaScript被加载并运行时，它的核心实际上是对全局对象Window的修改以及一些全局事件的改变，例如jQuery这个js运行后，会在Window上挂载一个window.$对象，对于其他库React，Vue也不例外。为此，需要在加载和卸载每个微应用的同时，尽可能消除这种冲突和影响，最普遍的做法是采用沙箱机制（SandBox）。<br>沙箱机制的核心是让局部的JavaScript运行时，对外部对象的访问和修改处在可控的范围内，即无论内部怎么运行，都不会影响外部的对象。通常在Node.js端可以采用vm模块，而对于浏览器，则需要结合with关键字和window.Proxy对象来实现浏览器端的沙箱。</p>
+<h3 id="微前端的消息通信"><a href="#微前端的消息通信" class="headerlink" title="微前端的消息通信"></a>微前端的消息通信</h3><p>应用间通信有很多种方式，当然，要让多个分离的微应用之间要做到通信，本质上仍离不开中间媒介或者说全局对象。所以对于消息订阅（pub/sub）模式的通信机制是非常适用的，在基座应用中会定义事件中心Event，每个微应用分别来注册事件，当被触发事件时再有事件中心统一分发，这就构成了基本的通信机制，流程如下图：<br><img src="/2020/12/27/weiqianduan/./1722065f24632ddb.webp" alt="Alt text"></p>
+<h3 id="微前端有哪些框架"><a href="#微前端有哪些框架" class="headerlink" title="微前端有哪些框架"></a>微前端有哪些框架</h3><ul>
+<li>Single-Spa：最早的微前端框架，兼容多种前端技术栈。</li>
+<li>Qiankun：基于Single-Spa，阿里系开源微前端框架。</li>
 </ul>
-<p><img src="/2017/11/24/flex/./6.png" alt="Alt text"></p>
-<p><img src="/2017/11/24/flex/./7.png" alt="Alt text"></p>
-<h3 id="3、flex-flow"><a href="#3、flex-flow" class="headerlink" title="3、flex-flow"></a>3、flex-flow</h3><p>是flex-direction和flex-wrap的简写形式，如：row wrap|column wrap-reverse等。默认值为row nowrap，即横向排列 不换行。</p>
-<h3 id="4、justify-content"><a href="#4、justify-content" class="headerlink" title="4、justify-content"></a>4、justify-content</h3><p>决定item在主轴上的对齐方式，可能的值有flex-start（默认），flex-end，center，space-between，space-around。当主轴沿水平方向时，具体含义为</p>
-<ul>
-<li><p>flex-start：左对齐</p>
-</li>
-<li><p>flex-end：右对齐</p>
-</li>
-<li><p>center：居中对齐</p>
-</li>
-<li><p>space- between：两端对齐</p>
-</li>
-<li><p>space-around：沿轴线均匀分布</p>
-</li>
-</ul>
-<p><img src="/2017/11/24/flex/./8.png" alt="Alt text"></p>
-<h3 id="5、align-items"><a href="#5、align-items" class="headerlink" title="5、align-items"></a>5、align-items</h3><p>决定了item在交叉轴上的对齐方式，可能的值有flex-start|flex-end|center|baseline|stretch，当主轴水平时，其具体含义为</p>
-<ul>
-<li><p>flex-start：顶端对齐</p>
-</li>
-<li><p>flex-end：底部对齐</p>
-</li>
-<li><p>center：竖直方向上居中对齐</p>
-</li>
-<li><p>baseline：item第一行文字的底部对齐</p>
-</li>
-<li><p>stretch：当item未设置高度时，item将和容器等高对齐</p>
-</li>
-</ul>
-<p><img src="/2017/11/24/flex/./9.png" alt="Alt text"></p>
-<h3 id="6、align-content"><a href="#6、align-content" class="headerlink" title="6、align-content"></a>6、align-content</h3><p>该属性定义了当有多根主轴时，即item不止一行时，多行在交叉轴轴上的对齐方式。<br>注意当有多行时，定义了align-content后，align-items属性将失效。align-content可能值含义如下（假设主轴为水平方向）：</p>
-<ul>
-<li><p>flex-start：左对齐</p>
-</li>
-<li><p>flex-end：右对齐</p>
-</li>
-<li><p>center：居中对齐</p>
-</li>
-<li><p>space- between：两端对齐</p>
-</li>
-<li><p>space-around：沿轴线均匀分布</p>
-</li>
-<li><p>stretch：各行将根据其flex-grow值伸展以充分占据剩余空间</p>
-</li>
-</ul>
-<p><img src="/2017/11/24/flex/./10.png" alt="Alt text"></p>
-<p><img src="/2017/11/24/flex/./11.png" alt="Alt text"></p>
-<h2 id="四、flex-item属性详述"><a href="#四、flex-item属性详述" class="headerlink" title="四、flex item属性详述"></a>四、flex item属性详述</h2><p>item的属性在item的style中设置。item共有如下六种属性</p>
-<h3 id="1、order-order的值是整数，默认为0，整数越小，item排列越靠前，如下图所示代码如下"><a href="#1、order-order的值是整数，默认为0，整数越小，item排列越靠前，如下图所示代码如下" class="headerlink" title="1、order:order的值是整数，默认为0，整数越小，item排列越靠前，如下图所示代码如下"></a>1、order:order的值是整数，默认为0，整数越小，item排列越靠前，如下图所示代码如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"order:4"</span>&gt;&lt;h2&gt;item 1&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"order:2"</span>&gt;&lt;h2&gt;item 2&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"order:3"</span>&gt;&lt;h2&gt;item 3&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"order:1"</span>&gt;&lt;h2&gt;item 4&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/11/24/flex/./12.png" alt="Alt text"></p>
-<h3 id="2、flex-grow"><a href="#2、flex-grow" class="headerlink" title="2、flex-grow"></a>2、flex-grow</h3><p>定义了当flex容器有多余空间时，item是否放大。默认值为0，即当有多余空间时也不放大；可能的值为整数，表示不同item的放大比例，如</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"flex-grow:1"</span>&gt;&lt;h2&gt;item 1&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"flex-grow:2"</span>&gt;&lt;h2&gt;item 2&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"flex-grow:3"</span>&gt;&lt;h2&gt;item 3&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>即当有多余空间时item1、item2、和item3以1：2：3的比例放大。</p>
-<h3 id="3、flex-shrink"><a href="#3、flex-shrink" class="headerlink" title="3、flex-shrink"></a>3、flex-shrink</h3><p>定义了当容器空间不足时，item是否缩小。默认值为1，表示当空间不足时，item自动缩小，其可能的值为整数，表示不同item的缩小比例。flex-grow</p>
-<h3 id="4、flex-basis"><a href="#4、flex-basis" class="headerlink" title="4、flex-basis"></a>4、flex-basis</h3><p>表示项目在主轴上占据的空间，默认值为auto。如下代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"flex-basis:80px"</span>&gt;&lt;h2&gt;item 1&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"flex-basis:160px"</span>&gt;&lt;h2&gt;item 2&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"div"</span> style=<span class="string">"flex-basis:240px"</span>&gt;&lt;h2&gt;item 3&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/11/24/flex/./13.png" alt="Alt text"></p>
-<h3 id="5、flex"><a href="#5、flex" class="headerlink" title="5、flex"></a>5、flex</h3><p>flex属性是flex-grow、flex-shrink和flex-basis三属性的简写总和。</p>
-<h3 id="6、align-self"><a href="#6、align-self" class="headerlink" title="6、align-self"></a>6、align-self</h3><p>align-self属性允许item有自己独特的在交叉轴上的对齐方式，它有六个可能的值。默认值为auto</p>
-<ul>
-<li><p>auto：和父元素align-self的值一致</p>
-</li>
-<li><p>flex-start：顶端对齐</p>
-</li>
-<li><p>flex-end：底部对齐</p>
-</li>
-<li><p>center：竖直方向上居中对齐</p>
-</li>
-<li><p>baseline：item第一行文字的底部对齐</p>
-</li>
-<li><p>stretch：当item未设置高度时，item将和容器等高对齐</p>
-</li>
-</ul>
-<p><img src="/2017/11/24/flex/./14.png" alt="Alt text"></p>
-<p>参考文档：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a><br>&emsp;&emsp;&emsp;&emsp;&emsp;<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">Flex 布局教程：实例篇</a></p>
 
     
 
@@ -354,6 +296,21 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">微前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -404,7 +361,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/24/flex/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/27/weiqianduan/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -419,18 +376,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/12/01/vuePlug/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue插件开发
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/23/eventproxy/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">eventproxy控制并发</div>
+    <a href="/2020/12/23/babel/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【阅读笔记】深入babel</div>
       <i class="icon-circle-right"></i>
     </a>
   
