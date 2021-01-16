@@ -2,7 +2,7 @@
 title: 【阅读笔记】javascript-questions收集
 date: 2021-01-15 14:35:36
 ---
-JavaScript 进阶问题列表 
+JavaScript 进阶问题列表
 [Github链接](https://github.com/lydiahallie/javascript-questions/blob/master/zh-CN/README-zh_CN.md)
 
 <!-- more -->
@@ -123,3 +123,51 @@ sum(a, b) // Uncertain
 </details>
 
 ---
+
+114. 将会发生什么?
+```javascript
+let config = {
+  alert: setInterval(() => {
+    console.log('Alert!')
+  }, 1000)
+}
+
+config = null
+```
+
+- A: setInterval 的回调不会被调用
+- B: setInterval 的回调被调用一次
+- C: setInterval 的回调仍然会被每秒钟调用
+- D: 我们从没调用过 config.alert(), config 为 null
+
+<details>
+<summary>答案</summary>
+答案: C
+一般情况下当我们将对象赋值为 null, 那些对象会被进行 垃圾回收（garbage collected） 因为已经没有对这些对象的引用了。然而，setInterval的参数是一个箭头函数（所以上下文绑定到对象 config 了），回调函数仍然保留着对 config的引用。只要存在引用，对象就不会被垃圾回收。因为没有被垃圾回收，setInterval 的回调每1000ms (1s)会被调用一次。
+</details>
+
+---
+
+153. 哪个作为method的值可以打印{ name: "Lydia", age: 22 }?
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: entries
+- B: values
+- C: fromEntries
+- D: forEach
+
+<details>
+<summary>答案</summary>
+答案: C
+fromEntries 方法可以将二维数组转换为对象。在每个子数组的第一个元素是key，在每个子数组的第二个元素是value。在这个例子中，我们映射了 keys 数组，它返回了一个数组，数组的第一个元素为keys数组当前索引的值，第二个元素为values数组当前索引的值。
+
+这样就创建了一个包含正确keys和values的子数组的数组，因此结果为{ name: "Lydia", age: 22 }。
+</details>
