@@ -6,30 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>使用hexo+github搭建个人博客 | 国康的博客</title>
+  <title>【阅读笔记】h5 与原生 app 交互的原理 | 国康的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1.前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台；">
-<meta name="keywords" content="黑魔法,奇淫技巧">
+  <meta name="description" content="h5 与原生 app 的交互，本质上说，就是两种调用：  app 调用 h5 的代码 h5 调用 app 的代码">
+<meta name="keywords" content="阅读笔记,原生交互">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用hexo+github搭建个人博客">
-<meta property="og:url" content="http://yoursite.com/2017/11/21/hexo/index.html">
+<meta property="og:title" content="【阅读笔记】h5 与原生 app 交互的原理">
+<meta property="og:url" content="http://yoursite.com/2021/02/13/h5_app/index.html">
 <meta property="og:site_name" content="国康的博客">
-<meta property="og:description" content="1.前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台；">
+<meta property="og:description" content="h5 与原生 app 的交互，本质上说，就是两种调用：  app 调用 h5 的代码 h5 调用 app 的代码">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/20160818_115922_773_1148.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/1531909-8decffce7d3866b3.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/123.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/1531909-fe29bad673d85f37.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/456.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/LLPFAQ949D8DV9N$Y3S1ZO9.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/21/hexo/789.png">
-<meta property="og:updated_time" content="2019-10-27T08:41:45.181Z">
+<meta property="og:image" content="http://yoursite.com/2021/02/13/h5_app/h5_app1.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/13/h5_app/h5_app2.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/13/h5_app/h5_app3.png">
+<meta property="og:updated_time" content="2021-02-13T08:31:12.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用hexo+github搭建个人博客">
-<meta name="twitter:description" content="1.前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台；">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/21/hexo/20160818_115922_773_1148.png">
+<meta name="twitter:title" content="【阅读笔记】h5 与原生 app 交互的原理">
+<meta name="twitter:description" content="h5 与原生 app 的交互，本质上说，就是两种调用：  app 调用 h5 的代码 h5 调用 app 的代码">
+<meta name="twitter:image" content="http://yoursite.com/2021/02/13/h5_app/h5_app1.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -181,22 +177,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-h5_app" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      使用hexo+github搭建个人博客
+      【阅读笔记】h5 与原生 app 交互的原理
     </h1>
   
 
 
   
   
-<a href="/2017/11/21/hexo/" class="archive-article-date">
-        <time datetime="2017-11-21T08:15:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+<a href="/2021/02/13/h5_app/" class="archive-article-date">
+        <time datetime="2021-02-13T08:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-13</time>
 </a>
 
   
@@ -209,7 +205,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">477字</span>
+      <span class="post-count">363字</span>
     </span>
   </span>
 
@@ -229,60 +225,28 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>使用github pages服务搭建博客的好处有：</p>
+    <p>h5 与原生 app 的交互，本质上说，就是两种调用：</p>
 <ol>
-<li>全是静态文件，访问速度快；</li>
-<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
-<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
-<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
-<li>博客内容可以轻松打包、转移、发布到其它平台；</li>
+<li>app 调用 h5 的代码</li>
+<li>h5 调用 app 的代码</li>
 </ol>
 <a id="more"></a>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>在开始一切之前，你必须已经：</p>
-<ul>
-<li>有一个github账号，没有的话去注册一个；</li>
-<li>安装了node.js、npm，并了解相关基础知识；</li>
-<li>安装了git for windows（或者其它git客户端）</li>
-</ul>
-<hr>
-<h2 id="2-使用hexo写博客"><a href="#2-使用hexo写博客" class="headerlink" title="2.使用hexo写博客"></a>2.使用hexo写博客</h2><p>hexo简介</p>
-<blockquote>
-<p>Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
-</blockquote>
-<p>官网：<a href="http://hexo.io" target="_blank" rel="noopener">http://hexo.io</a><br>github:<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
-<p>$ npm install -g hexo</p>
-</blockquote>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>新建一个名为hexo的文件夹，比如我的是F:\Workspaces\hexo</p>
-<blockquote>
-<p>$ cd /f/Workspaces/hexo/</p>
-</blockquote>
-<blockquote>
-<p>$ hexo init </p>
-</blockquote>
-<p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：<br><img src="/2017/11/21/hexo/./20160818_115922_773_1148.png" alt="Alt text"></p>
-<blockquote>
-<p>$ hexo g  #生成静态文件</p>
-</blockquote>
-<p>执行以上命令之后，hexo就会在public文件夹生成相关html文件，这些文件将来都是要提交到github去的</p>
-<blockquote>
-<p>$ hexo s  #启动服务</p>
-</blockquote>
-<p>hexo s是开启本地预览服务，打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到内容</p>
-<h2 id="3-部署到github"><a href="#3-部署到github" class="headerlink" title="3.部署到github"></a>3.部署到github</h2><p>1.new repository<br><img src="/2017/11/21/hexo/./1531909-8decffce7d3866b3.png" alt="Alt text"><br><img src="/2017/11/21/hexo/./123.png" alt="Alt text"><br> 仓库名字和用户名保持一致<br> 然后点击<br><img src="/2017/11/21/hexo/./1531909-fe29bad673d85f37.png" alt="Alt text"></p>
-<p>2.在_config.yml进行配置<br><img src="/2017/11/21/hexo/./456.png" alt="Alt text"></p>
-<p>3.安装hexo-deployer-git自动部署发布工具</p>
-<blockquote>
-<p>npm instal lhexo-deployer-git  –save</p>
-</blockquote>
-<p>4.发布到Github</p>
-<blockquote>
-<p>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
-</blockquote>
-<p><img src="/2017/11/21/hexo/./LLPFAQ949D8DV9N$Y3S1ZO9.png" alt="Alt text"><br>发布完成</p>
-<p>5.测试访问</p>
-<p>在浏览器输入：<a href="https://linguokang.github.io/" target="_blank" rel="noopener">https://linguokang.github.io/</a></p>
-<p><img src="/2017/11/21/hexo/./789.png" alt="Alt text"></p>
+<h3 id="app-调用-h5-的代码"><a href="#app-调用-h5-的代码" class="headerlink" title="app 调用 h5 的代码"></a>app 调用 h5 的代码</h3><p>因为 app 是宿主，可以直接访问 h5，所以这种调用比较简单，就是在 h5 中曝露一些全局对象（包括方法），然后在原生 app 中调用这些对象。</p>
+<p><img src="/2021/02/13/h5_app/./h5_app1.png" alt="Alt text"></p>
+<h3 id="h5-调用-app-的代码"><a href="#h5-调用-app-的代码" class="headerlink" title="h5 调用 app 的代码"></a>h5 调用 app 的代码</h3><p>因为 h5 不能直接访问宿主 app，所以这种调用就相对复杂一点。</p>
+<p>有两种方式：</p>
+<h4 id="由-app-向-h5-注入一个全局-js-对象，然后在-h5-直接访问这个对象"><a href="#由-app-向-h5-注入一个全局-js-对象，然后在-h5-直接访问这个对象" class="headerlink" title="由 app 向 h5 注入一个全局 js 对象，然后在 h5 直接访问这个对象"></a>由 app 向 h5 注入一个全局 js 对象，然后在 h5 直接访问这个对象</h4><p>这种方式沟通机制简单，比较好理解，并且对于 h5 来说，没有新的东西，所以是比较推荐的一种方式。</p>
+<p><img src="/2021/02/13/h5_app/./h5_app2.png" alt="Alt text"></p>
+<h4 id="由-h5-发起一个自定义协议请求，app-拦截这个请求后，再由-app-调用-h5-中的回调函数"><a href="#由-h5-发起一个自定义协议请求，app-拦截这个请求后，再由-app-调用-h5-中的回调函数" class="headerlink" title="由 h5 发起一个自定义协议请求，app 拦截这个请求后，再由 app 调用 h5 中的回调函数"></a>由 h5 发起一个自定义协议请求，app 拦截这个请求后，再由 app 调用 h5 中的回调函数</h4><p>这种方式要稍复杂一点，因为需要自定义协议，这对很多前端开发者来说是比较新的东西</p>
+<p>大致需要以下几个步骤：</p>
+<ol>
+<li>由 app 自定义协议，比如 sdk://action?params</li>
+<li>在 h5 定义好回调函数，比如 window.bridge = {getDouble: value =&gt; {}, getTriple: value =&gt; {}}</li>
+<li>由 h5 发起一个自定义协议请求，比如 location.href = ‘sdk://double?value=10’</li>
+<li>app 拦截这个请求后，进行相应的操作，获取返回值</li>
+<li>由 app 调用 h5 中的回调函数，比如 window.bridge.getDouble(20);</li>
+</ol>
+<p><img src="/2021/02/13/h5_app/./h5_app3.png" alt="Alt text"></p>
 
     
 
@@ -299,11 +263,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">黑魔法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇淫技巧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">原生交互</a>
         		</li>
       		
 		</ul>
@@ -359,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/21/hexo/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/02/13/h5_app/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -374,18 +338,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/11/23/AsyncAwait/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          异步解决方案-ES7的Async/Await
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2021/02/06/redux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【阅读笔记】深入理解redux</div>
       <i class="icon-circle-right"></i>
     </a>
   
