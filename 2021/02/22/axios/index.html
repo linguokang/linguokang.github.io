@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>同一台电脑配置多个git账号 | 国康的博客</title>
+  <title>axios cancelToken原理 | 国康的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况： 1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？ 2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品） 总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。">
-<meta name="keywords" content="git">
+  <meta name="description" content="前言最近看了axios源码，里面的cancelToken有意思，以免忘记，写一篇博客记录一下。">
+<meta name="keywords" content="axios">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同一台电脑配置多个git账号">
-<meta property="og:url" content="http://yoursite.com/2019/11/11/multiple-git-account/index.html">
+<meta property="og:title" content="axios cancelToken原理">
+<meta property="og:url" content="http://yoursite.com/2021/02/22/axios/index.html">
 <meta property="og:site_name" content="国康的博客">
-<meta property="og:description" content="在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况： 1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？ 2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品） 总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。">
+<meta property="og:description" content="前言最近看了axios源码，里面的cancelToken有意思，以免忘记，写一篇博客记录一下。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-12-20T09:33:00.692Z">
+<meta property="og:updated_time" content="2021-03-27T06:09:14.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同一台电脑配置多个git账号">
-<meta name="twitter:description" content="在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况： 1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？ 2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品） 总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。">
+<meta name="twitter:title" content="axios cancelToken原理">
+<meta name="twitter:description" content="前言最近看了axios源码，里面的cancelToken有意思，以免忘记，写一篇博客记录一下。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -173,22 +173,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-multiple-git-account" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-axios" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      同一台电脑配置多个git账号
+      axios cancelToken原理
     </h1>
   
 
 
   
   
-<a href="/2019/11/11/multiple-git-account/" class="archive-article-date">
-        <time datetime="2019-11-11T10:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+<a href="/2021/02/22/axios/" class="archive-article-date">
+        <time datetime="2021-02-21T16:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-22</time>
 </a>
 
   
@@ -201,7 +201,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.7k字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -210,7 +210,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -221,94 +221,25 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况：</p>
-<pre><code>1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？
-2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品）
-</code></pre><p>总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。</p>
+    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近看了axios源码，里面的cancelToken有意思，以免忘记，写一篇博客记录一下。</p>
 <a id="more"></a>
-<p>首先来说，配置多个git账号分为两种情况：</p>
-<ol>
-<li>已经配置过git账号，想在添加一个账号。</li>
-<li>没有配置过任何git账号，直接就像配置两个账号</li>
-</ol>
-<h1 id="已配置过git账号"><a href="#已配置过git账号" class="headerlink" title="已配置过git账号"></a>已配置过git账号</h1><p>一般开发用户应该都配置过一个git的账号，让我们先来回顾一下，当时我们是怎样来配置git账号的（<strong>只有熟悉了配置的过程和原理才能更好地去理解</strong>）。</p>
-<h2 id="回顾配置git账号的过程"><a href="#回顾配置git账号的过程" class="headerlink" title="回顾配置git账号的过程"></a>回顾配置git账号的过程</h2><p>配置git本地和远程github连接通信的方法，网上有很多，想了解的同学可以看一下这里<a href="https://link.jianshu.com?t=http://www.cnblogs.com/tinyphp/p/5025311.html" target="_blank" rel="noopener">http://www.cnblogs.com/tinyphp/p/5025311.html</a>或者想了解如何生成SSH keys的可以看一下这里<a href="https://www.jianshu.com/p/31cbbbc5f9fa/" target="_blank" rel="noopener">http://www.jianshu.com/p/31cbbbc5f9fa/</a></p>
-<p><strong>解释一下：</strong><br>当本地git仓库和github上的仓库进行通信的时候，必须得双方建立连接才行，而SSH keys就是两者建立连接的一把钥匙，只要钥匙对了就完成了其中一步验证了。其中我们可以在生成的SSH keys中看到，里面包含了我们的账号信息和邮箱信息（后面会用到，先提一下）。</p>
-<p>还有一步验证就是用户名和邮箱的验证，这个貌似可有可无（具体我也没搞清楚，反正不设置的时候也没有问题），有些连接本地git仓库和github仓库的教程中会有下面这样的设置：</p>
-<pre><code>git config --golbal user.name &apos;linguokang&apos; //以我的git账号为例
-
-git config --golbal user.emil &apos;595332720@qq.com&apos;
-//该邮箱账号是我的github注册时的邮箱
-</code></pre><p>这其实就是在设置全局范围的用户名和邮箱的设置，有时不设置这一步，两者之间进行连接会有问题。</p>
-<h2 id="设置多账号"><a href="#设置多账号" class="headerlink" title="设置多账号"></a>设置多账号</h2><p>简单回顾玩设置git账号的步骤和一些注意点，进入今天的主题，设置多账号。</p>
-<h3 id="清除git的全局设置"><a href="#清除git的全局设置" class="headerlink" title="清除git的全局设置"></a>清除git的全局设置</h3><p>如果你之前在设置本地仓库和github连接的时候设置过<strong>user.name</strong>和<strong>user.email</strong>,那么你必须首先清楚掉该设置，因为不清楚掉该设置，两个账号在提交资料的时候，验证肯定冲突（只能设置一个全局的<strong>user.name</strong>和<strong>user.email</strong>，而你现在有两个账号就对应两个不同的）。</p>
-<pre><code>git config --global user.name &quot;your_name&quot;
-git config --global user.email  &quot;your_email&quot;
-</code></pre><p>就是重新设置覆盖了而已。。。</p>
-<p>如果没有设置，可以直接跳转第二部。如果你忘了，最好还是覆盖一下。</p>
-<h3 id="生成新站好的SSH-keys"><a href="#生成新站好的SSH-keys" class="headerlink" title="生成新站好的SSH keys"></a>生成新站好的SSH keys</h3><p>前面提到过生成的SSH keys里面包含了账号和邮箱信息，所以新账号必须另外在生成一份SSH keys，当然生成的方式和以前一样。</p>
-<p><strong>1. 用ssh-keygen命令生成一组新的id_rsa_new和id_rsa_new.pub</strong></p>
-<pre><code>ssh-keygen -t rsa -C &quot;new email&quot;
-</code></pre><p>平时我们都是直接回车，默认生成id_rsa和id_rsa.pub。这里特别需要注意，出现提示输入文件名的时候(<code>Enter file in which to save the key (~/.ssh/id_rsa): id_rsa_new</code>)要输入与默认配置不一样的文件名，比如：我这里填的是 id_rsa_new</p>
-<p>注：windows用户和mac用户的区别就是，mac中<code>.ssh</code>文件夹在根目录下，所以表示成<code>~/.ssh/</code>,而windwos用户是<code>C:\Users\Administrator\.ssh</code>。<br>下面同理，不在赘述。</p>
-<p><strong>2. 执行ssh-agent让ssh识别新的私钥</strong></p>
-<p>因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中：</p>
-<pre><code>ssh-add ~/.ssh/id_rsa_work   
-</code></pre><p>如果出现<code>Could not open a connection to your authentication agent</code>的错误，就试着用以下命令：</p>
-<pre><code>ssh-agent bash
-ssh-add ~/.ssh/id_rsa_work
-</code></pre><p><strong>3. 配置~/.ssh/config文件</strong><br>前面我们在~/.ssh目录下面，使用ssh-keygen -C “your_email” -t rsa 生成公私秘钥，当有多个github账号的时候，可以生成多组rsa的公司密钥。然后配置~/.ssh/config文件（如果没有的话请重新创建一个）。</p>
-<pre><code>touch config        # 创建config文件
-</code></pre><p>然后修改如下：<br>我的config配置如下：</p>
-<pre><code># 该文件用于配置私钥对应的服务器
-# Default github user(595332720@qq.com)
-Host git@github.com
- HostName https://github.com
- User git
- IdentityFile ~/.ssh/id_rsa
-
- # second user(second@mail.com)
- # 建一个github别名，新建的帐号使用这个别名做克隆和更新
-Host git@code.xxxxxxx.com
- HostName https://code.xxxxxxx.com    #公司的gitlab
- User git
- IdentityFile ~/.ssh/id_rsa_new
-</code></pre><p>如果存在config文件的话，其实就是往这个config中添加一个Host：</p>
-<pre><code>#建一个github别名，新建的帐号使用这个别名做克隆和更新
-Host git@code.xxxxxxx.com
- HostName https://code.xxxxxxx.com    #公司的gitlab
- User git
- IdentityFile ~/.ssh/id_rsa_new
-</code></pre><p>其规则就是：从上至下读取<strong>config</strong>的内容，在每个Host下寻找对应的私钥。这里将GitHub SSH仓库地址中的<strong><a href="https://link.jianshu.com?t=mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></strong>替换成新建的Host别名如：我直接就写成了<a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>`，那么原地址是：<a href="https://link.jianshu.com?t=mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:chping2125/test.git，替换后任然是：<a href="https://link.jianshu.com?t=mailto:it@github.com" target="_blank" rel="noopener">it@github.com</a>:chping2125/test.git。<br>如果你配置的是这样：</p>
-<pre><code># 该文件用于配置私钥对应的服务器
-# Default github user(chping_2125@163.com)
-Host git1    #############不同在这里
-HostName https://github.com
-User git
-IdentityFile ~/.ssh/id_rsa
-
-# second user(second@mail.com)
-# 建一个github别名，新建的帐号使用这个别名做克隆和更新
-Host git2  #############不同在这里
-HostName https://code.xxxxxxx.com    #公司的gitlab
-User git
-IdentityFile ~/.ssh/id_rsa_new
-</code></pre><p>那么你原本想在新账号克隆的命令是</p>
-<pre><code>git clone git@xxxxxx.com:chping/test.git
-</code></pre><p>就要相应的变成</p>
-<pre><code>git clone git2:chping/test.git
-</code></pre><p><strong>4. 添加新的SSH keys到新账号的SSH设置中</strong><br>可不要忘了将新生成的SSH keys添加到你的另一个github帐号(或者公司的gitlab)下的SSH Key中。</p>
-<p><strong>测试一下</strong></p>
-<pre><code>$ ssh -T git@github.com
-Hi BeginMan! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-
-# 上面是github的成功返回语句，下面是gitlab的成功返回语句。
-
-$ ssh -T git@xxxxxx.com
-Welcome to GitLab, chping!
-</code></pre><h2 id="一次性配置两个账号"><a href="#一次性配置两个账号" class="headerlink" title="一次性配置两个账号"></a>一次性配置两个账号</h2><p>其实同理上面，先配置一个，在配置两一个。</p>
-<p>。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://link.jianshu.com?t=http://www.cnblogs.com/BeginMan/p/3548139.html" target="_blank" rel="noopener">http://www.cnblogs.com/BeginMan/p/3548139.html</a><br><a href="https://link.jianshu.com?t=https://my.oschina.net/csensix/blog/184434" target="_blank" rel="noopener">https://my.oschina.net/csensix/blog/184434</a><br><a href="https://link.jianshu.com?t=http://blog.csdn.net/guang09080908/article/details/46545335" target="_blank" rel="noopener">http://blog.csdn.net/guang09080908/article/details/46545335</a></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>1.使用 CancelToken.source 工厂方法创建 cancel token</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CancelToken是一个构造函数，用于创建一个cancelToken实例对象</span></span><br><span class="line"><span class="comment">// cancelToken实例对象包含了一个promise属性，值为可以触发取消请求的一个promise</span></span><br><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="comment">// 执行source()得到的是一个包含了cancelToken对象和一个取消函数cancel()的对象</span></span><br><span class="line"><span class="comment">// 即 source = &#123;token: cancelToken对象, cancel: 取消函数&#125;</span></span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在请求的配置中配置cancelToken，那么这个请求就有了可以取消请求的功能</span></span><br><span class="line">axios.get(<span class="string">'/data'</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Request canceled'</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>2.通过传递一个 executor 函数到 CancelToken 的构造函数来创建 cancel token</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">let</span> cancel;</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">'/data'</span>, &#123;</span><br><span class="line">  cancelToken: <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span> <span class="title">executor</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// executor 函数接收一个 cancel 函数作为参数</span></span><br><span class="line">    <span class="comment">// 把cancel函数传递给外面，使得外面能控制执行取消请求</span></span><br><span class="line">    cancel = c;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// cancel the request</span></span><br><span class="line">cancel();</span><br></pre></td></tr></table></figure>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// axios/lib/cancel/CancelToken.js</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Cancel = <span class="built_in">require</span>(<span class="string">'./Cancel'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CancelToken</span>(<span class="params">executor</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> executor !== <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'executor must be a function.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 定义一个将来能执行取消请求的promise对象，当这个promise的状态为完成时(fullfilled),</span></span><br><span class="line"><span class="comment">    * 就会触发取消请求的操作（执行then函数）。而执行resolve就能将promise的状态置为完成状态。</span></span><br><span class="line"><span class="comment">    * 这里把resolve赋值给resolvePromise，就是为了在这个promise外能执行resolve而改变这个promise的状态</span></span><br><span class="line"><span class="comment">    * 注意这个promise对象被赋值给CancelToken实例的属性promise，将来定义then函数就是通过这个属性得到promise</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> resolvePromise;</span><br><span class="line">    <span class="keyword">this</span>.promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> <span class="title">promiseExecutor</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">        resolvePromise = resolve;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 将CancelToken实例赋值给token</span></span><br><span class="line"><span class="comment">    * 执行executor函数，将cancel方法传入executor，</span></span><br><span class="line"><span class="comment">    * cancel方法可调用resolvePromise方法，即触发取消请求的操作</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> token = <span class="keyword">this</span>;</span><br><span class="line">    executor(<span class="function"><span class="keyword">function</span> <span class="title">cancel</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (token.reason) &#123;</span><br><span class="line">            <span class="comment">// 取消已响应 返回</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        token.reason = <span class="keyword">new</span> Cancel(message);</span><br><span class="line">        <span class="comment">// 这里执行的就是promise的resolve方法，改变状态</span></span><br><span class="line">        resolvePromise(token.reason);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CancelToken.prototype.throwIfRequested = <span class="function"><span class="keyword">function</span> <span class="title">throwIfRequested</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.reason) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">this</span>.reason;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里可以看清楚source函数的真面目</span></span><br><span class="line">CancelToken.source = <span class="function"><span class="keyword">function</span> <span class="title">source</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cancel;</span><br><span class="line">    <span class="keyword">var</span> token = <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span> <span class="title">executor</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// c 就是CancelToken中给executor传入的cancel方法</span></span><br><span class="line">        cancel = c;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        token: token,</span><br><span class="line">        cancel: cancel</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = CancelToken;</span><br></pre></td></tr></table></figure>
+<h3 id="CancelToken"><a href="#CancelToken" class="headerlink" title="CancelToken"></a>CancelToken</h3><p>CancelToken是一个构造函数，通过new CancelToken()得到的是一个实例对象，它只有一个属性promise, 它的值是一个能触发取消请求的Promise对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">token = <span class="keyword">new</span> CancelToken(executor <span class="function"><span class="keyword">function</span>) ===&gt; </span>&#123; promise: <span class="built_in">Promise</span>对象 &#125;</span><br></pre></td></tr></table></figure>
+<p>执行CancelToken函数做了两件事：</p>
+<p>创建一个Promise对象，且将这个对象赋值给promise属性，其resolve参数被暴露出来以备外部引用。 执行executor函数，将内部定义的cancel函数作为参数传递给executor</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> token = <span class="keyword">this</span>;</span><br><span class="line"><span class="keyword">var</span> cancel = <span class="function"><span class="keyword">function</span> (<span class="params">message</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (token.reason) &#123;</span><br><span class="line">        <span class="comment">// 取消已响应 返回</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    token.reason = <span class="keyword">new</span> Cancel(message);</span><br><span class="line">    <span class="comment">// 这里执行的就是promise的resolve方法，改变状态</span></span><br><span class="line">    resolvePromise(token.reason);</span><br><span class="line">&#125;</span><br><span class="line">executor(cancel);</span><br></pre></td></tr></table></figure>
+<p>当执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cancel</span><br><span class="line">token = <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span> <span class="title">executor</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">    cancel = c;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>token值为{promise: Promise对象} cancel就是CanelToken内部的那个cancel函数。</p>
+<h3 id="CancelToken-source"><a href="#CancelToken-source" class="headerlink" title="CancelToken.source"></a>CancelToken.source</h3><p>CancelToken.source是一个函数，通过源码可以看到，执行const source = CancelToken.source(),得到的是一个对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">    token: token,</span><br><span class="line">    cancel: cancel</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>包含一个token对象，即CancelToken实例对象，和一个cancel函数。因此CancelToken.source()函数的作用是生成token对象和取得cancel函数。token对象是用于配置给axios请求中的cancelToken属性，cancel函数是将来触发取消请求的函数。</p>
+<h3 id="如何执行取消请求"><a href="#如何执行取消请求" class="headerlink" title="如何执行取消请求"></a>如何执行取消请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// axios/lib/adapters/xhr.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建XHR对象</span></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"><span class="comment">// 模拟当前ajax请求</span></span><br><span class="line">request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义取消请求promise对象的then函数</span></span><br><span class="line"><span class="keyword">if</span> (config.cancelToken) &#123; <span class="comment">// 如果配置了cancelToken属性</span></span><br><span class="line">    <span class="comment">// 当promise为完成态时，这个then函数执行，即执行取消请求</span></span><br><span class="line">    config.cancelToken.promise.then(<span class="function"><span class="keyword">function</span> <span class="title">onCanceled</span>(<span class="params">cancel</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!request) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 取消ajax请求</span></span><br><span class="line">        request.abort();</span><br><span class="line">        reject(cancel);</span><br><span class="line">        <span class="comment">// Clean up request</span></span><br><span class="line">        request = <span class="literal">null</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是最终执行ajax请求的地方。<br>我们前面配置了cancelToken = new CancelToken(executor),得到对象{promise: 取消请求的Promise对象}，因此上面cancelToken.promise就是这个promise。<br>当我们执行了内部暴露出的cancel方法，promise被reslove转为fullfilled状态，进入then回调中，<br>调用xhr的abort()取消请求。</p>
 
     
 
@@ -325,7 +256,7 @@ Welcome to GitLab, chping!
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">axios</a>
         		</li>
       		
 		</ul>
@@ -381,7 +312,7 @@ Welcome to GitLab, chping!
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/11/multiple-git-account/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/02/22/axios/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -396,18 +327,18 @@ Welcome to GitLab, chping!
 
 <nav id="article-nav">
   
-    <a href="/2019/11/13/git-guide/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/02/24/webpack-bundle/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          git思维导图
+          webpack 打包后 JS 的分析
         
       </div>
     </a>
   
   
-    <a href="/2019/11/08/hocAndrenderProp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Render Props and HOC</div>
+    <a href="/2021/02/13/h5_app/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【阅读笔记】h5 与原生 app 交互的原理</div>
       <i class="icon-circle-right"></i>
     </a>
   

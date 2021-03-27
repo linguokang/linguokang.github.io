@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>同一台电脑配置多个git账号 | 国康的博客</title>
+  <title>webpack 打包后 JS 的分析 | 国康的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况： 1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？ 2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品） 总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。">
-<meta name="keywords" content="git">
+  <meta name="description" content="webpack 是我们现阶段要掌握的重要的打包工具之一，我们知道 webpack 会递归的构建依赖关系图，其中包含应用程序的每个模块，然后将这些模块打包成一个或者多个 bundle。">
+<meta name="keywords" content="阅读笔记,webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同一台电脑配置多个git账号">
-<meta property="og:url" content="http://yoursite.com/2019/11/11/multiple-git-account/index.html">
+<meta property="og:title" content="webpack 打包后 JS 的分析">
+<meta property="og:url" content="http://yoursite.com/2021/02/24/webpack-bundle/index.html">
 <meta property="og:site_name" content="国康的博客">
-<meta property="og:description" content="在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况： 1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？ 2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品） 总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。">
+<meta property="og:description" content="webpack 是我们现阶段要掌握的重要的打包工具之一，我们知道 webpack 会递归的构建依赖关系图，其中包含应用程序的每个模块，然后将这些模块打包成一个或者多个 bundle。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-12-20T09:33:00.692Z">
+<meta property="og:updated_time" content="2021-03-27T06:02:08.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同一台电脑配置多个git账号">
-<meta name="twitter:description" content="在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况： 1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？ 2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品） 总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。">
+<meta name="twitter:title" content="webpack 打包后 JS 的分析">
+<meta name="twitter:description" content="webpack 是我们现阶段要掌握的重要的打包工具之一，我们知道 webpack 会递归的构建依赖关系图，其中包含应用程序的每个模块，然后将这些模块打包成一个或者多个 bundle。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -173,22 +173,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-multiple-git-account" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-webpack-bundle" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      同一台电脑配置多个git账号
+      webpack 打包后 JS 的分析
     </h1>
   
 
 
   
   
-<a href="/2019/11/11/multiple-git-account/" class="archive-article-date">
-        <time datetime="2019-11-11T10:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+<a href="/2021/02/24/webpack-bundle/" class="archive-article-date">
+        <time datetime="2021-02-24T08:35:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
 </a>
 
   
@@ -210,7 +210,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -221,94 +221,30 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>在日常使用git作为仓库使用的时候，有时可能会遇到这样的一些情况：</p>
-<pre><code>1. 有两个github账号，一台电脑怎么同时连接这两个账号进行维护呢？
-2. 自己用一个github账号，平时用来更新自己的一些资料；公司使用的gitlab（也是git的衍生产品）
-</code></pre><p>总结来说，就是同一客户端（即同一台电脑）可能需要连接多个git衍生产品账号（以下简称git账号）。下面就记录一下我配置的方法，也是网上都可以搜到的。</p>
+    <p>webpack 是我们现阶段要掌握的重要的打包工具之一，我们知道 webpack 会递归的构建依赖关系图，其中包含应用程序的每个模块，然后将这些模块打包成一个或者多个 bundle。</p>
 <a id="more"></a>
-<p>首先来说，配置多个git账号分为两种情况：</p>
-<ol>
-<li>已经配置过git账号，想在添加一个账号。</li>
-<li>没有配置过任何git账号，直接就像配置两个账号</li>
-</ol>
-<h1 id="已配置过git账号"><a href="#已配置过git账号" class="headerlink" title="已配置过git账号"></a>已配置过git账号</h1><p>一般开发用户应该都配置过一个git的账号，让我们先来回顾一下，当时我们是怎样来配置git账号的（<strong>只有熟悉了配置的过程和原理才能更好地去理解</strong>）。</p>
-<h2 id="回顾配置git账号的过程"><a href="#回顾配置git账号的过程" class="headerlink" title="回顾配置git账号的过程"></a>回顾配置git账号的过程</h2><p>配置git本地和远程github连接通信的方法，网上有很多，想了解的同学可以看一下这里<a href="https://link.jianshu.com?t=http://www.cnblogs.com/tinyphp/p/5025311.html" target="_blank" rel="noopener">http://www.cnblogs.com/tinyphp/p/5025311.html</a>或者想了解如何生成SSH keys的可以看一下这里<a href="https://www.jianshu.com/p/31cbbbc5f9fa/" target="_blank" rel="noopener">http://www.jianshu.com/p/31cbbbc5f9fa/</a></p>
-<p><strong>解释一下：</strong><br>当本地git仓库和github上的仓库进行通信的时候，必须得双方建立连接才行，而SSH keys就是两者建立连接的一把钥匙，只要钥匙对了就完成了其中一步验证了。其中我们可以在生成的SSH keys中看到，里面包含了我们的账号信息和邮箱信息（后面会用到，先提一下）。</p>
-<p>还有一步验证就是用户名和邮箱的验证，这个貌似可有可无（具体我也没搞清楚，反正不设置的时候也没有问题），有些连接本地git仓库和github仓库的教程中会有下面这样的设置：</p>
-<pre><code>git config --golbal user.name &apos;linguokang&apos; //以我的git账号为例
-
-git config --golbal user.emil &apos;595332720@qq.com&apos;
-//该邮箱账号是我的github注册时的邮箱
-</code></pre><p>这其实就是在设置全局范围的用户名和邮箱的设置，有时不设置这一步，两者之间进行连接会有问题。</p>
-<h2 id="设置多账号"><a href="#设置多账号" class="headerlink" title="设置多账号"></a>设置多账号</h2><p>简单回顾玩设置git账号的步骤和一些注意点，进入今天的主题，设置多账号。</p>
-<h3 id="清除git的全局设置"><a href="#清除git的全局设置" class="headerlink" title="清除git的全局设置"></a>清除git的全局设置</h3><p>如果你之前在设置本地仓库和github连接的时候设置过<strong>user.name</strong>和<strong>user.email</strong>,那么你必须首先清楚掉该设置，因为不清楚掉该设置，两个账号在提交资料的时候，验证肯定冲突（只能设置一个全局的<strong>user.name</strong>和<strong>user.email</strong>，而你现在有两个账号就对应两个不同的）。</p>
-<pre><code>git config --global user.name &quot;your_name&quot;
-git config --global user.email  &quot;your_email&quot;
-</code></pre><p>就是重新设置覆盖了而已。。。</p>
-<p>如果没有设置，可以直接跳转第二部。如果你忘了，最好还是覆盖一下。</p>
-<h3 id="生成新站好的SSH-keys"><a href="#生成新站好的SSH-keys" class="headerlink" title="生成新站好的SSH keys"></a>生成新站好的SSH keys</h3><p>前面提到过生成的SSH keys里面包含了账号和邮箱信息，所以新账号必须另外在生成一份SSH keys，当然生成的方式和以前一样。</p>
-<p><strong>1. 用ssh-keygen命令生成一组新的id_rsa_new和id_rsa_new.pub</strong></p>
-<pre><code>ssh-keygen -t rsa -C &quot;new email&quot;
-</code></pre><p>平时我们都是直接回车，默认生成id_rsa和id_rsa.pub。这里特别需要注意，出现提示输入文件名的时候(<code>Enter file in which to save the key (~/.ssh/id_rsa): id_rsa_new</code>)要输入与默认配置不一样的文件名，比如：我这里填的是 id_rsa_new</p>
-<p>注：windows用户和mac用户的区别就是，mac中<code>.ssh</code>文件夹在根目录下，所以表示成<code>~/.ssh/</code>,而windwos用户是<code>C:\Users\Administrator\.ssh</code>。<br>下面同理，不在赘述。</p>
-<p><strong>2. 执行ssh-agent让ssh识别新的私钥</strong></p>
-<p>因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中：</p>
-<pre><code>ssh-add ~/.ssh/id_rsa_work   
-</code></pre><p>如果出现<code>Could not open a connection to your authentication agent</code>的错误，就试着用以下命令：</p>
-<pre><code>ssh-agent bash
-ssh-add ~/.ssh/id_rsa_work
-</code></pre><p><strong>3. 配置~/.ssh/config文件</strong><br>前面我们在~/.ssh目录下面，使用ssh-keygen -C “your_email” -t rsa 生成公私秘钥，当有多个github账号的时候，可以生成多组rsa的公司密钥。然后配置~/.ssh/config文件（如果没有的话请重新创建一个）。</p>
-<pre><code>touch config        # 创建config文件
-</code></pre><p>然后修改如下：<br>我的config配置如下：</p>
-<pre><code># 该文件用于配置私钥对应的服务器
-# Default github user(595332720@qq.com)
-Host git@github.com
- HostName https://github.com
- User git
- IdentityFile ~/.ssh/id_rsa
-
- # second user(second@mail.com)
- # 建一个github别名，新建的帐号使用这个别名做克隆和更新
-Host git@code.xxxxxxx.com
- HostName https://code.xxxxxxx.com    #公司的gitlab
- User git
- IdentityFile ~/.ssh/id_rsa_new
-</code></pre><p>如果存在config文件的话，其实就是往这个config中添加一个Host：</p>
-<pre><code>#建一个github别名，新建的帐号使用这个别名做克隆和更新
-Host git@code.xxxxxxx.com
- HostName https://code.xxxxxxx.com    #公司的gitlab
- User git
- IdentityFile ~/.ssh/id_rsa_new
-</code></pre><p>其规则就是：从上至下读取<strong>config</strong>的内容，在每个Host下寻找对应的私钥。这里将GitHub SSH仓库地址中的<strong><a href="https://link.jianshu.com?t=mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></strong>替换成新建的Host别名如：我直接就写成了<a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>`，那么原地址是：<a href="https://link.jianshu.com?t=mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:chping2125/test.git，替换后任然是：<a href="https://link.jianshu.com?t=mailto:it@github.com" target="_blank" rel="noopener">it@github.com</a>:chping2125/test.git。<br>如果你配置的是这样：</p>
-<pre><code># 该文件用于配置私钥对应的服务器
-# Default github user(chping_2125@163.com)
-Host git1    #############不同在这里
-HostName https://github.com
-User git
-IdentityFile ~/.ssh/id_rsa
-
-# second user(second@mail.com)
-# 建一个github别名，新建的帐号使用这个别名做克隆和更新
-Host git2  #############不同在这里
-HostName https://code.xxxxxxx.com    #公司的gitlab
-User git
-IdentityFile ~/.ssh/id_rsa_new
-</code></pre><p>那么你原本想在新账号克隆的命令是</p>
-<pre><code>git clone git@xxxxxx.com:chping/test.git
-</code></pre><p>就要相应的变成</p>
-<pre><code>git clone git2:chping/test.git
-</code></pre><p><strong>4. 添加新的SSH keys到新账号的SSH设置中</strong><br>可不要忘了将新生成的SSH keys添加到你的另一个github帐号(或者公司的gitlab)下的SSH Key中。</p>
-<p><strong>测试一下</strong></p>
-<pre><code>$ ssh -T git@github.com
-Hi BeginMan! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-
-# 上面是github的成功返回语句，下面是gitlab的成功返回语句。
-
-$ ssh -T git@xxxxxx.com
-Welcome to GitLab, chping!
-</code></pre><h2 id="一次性配置两个账号"><a href="#一次性配置两个账号" class="headerlink" title="一次性配置两个账号"></a>一次性配置两个账号</h2><p>其实同理上面，先配置一个，在配置两一个。</p>
-<p>。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://link.jianshu.com?t=http://www.cnblogs.com/BeginMan/p/3548139.html" target="_blank" rel="noopener">http://www.cnblogs.com/BeginMan/p/3548139.html</a><br><a href="https://link.jianshu.com?t=https://my.oschina.net/csensix/blog/184434" target="_blank" rel="noopener">https://my.oschina.net/csensix/blog/184434</a><br><a href="https://link.jianshu.com?t=http://blog.csdn.net/guang09080908/article/details/46545335" target="_blank" rel="noopener">http://blog.csdn.net/guang09080908/article/details/46545335</a></p>
+<p>那么 webpack 打包后的代码是怎样的呢？是怎么将各个 bundle 连接在一起的？模块与模块之间的关系是怎么处理的？</p>
+<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>既然需要用到 webpack，还是需要简单配置一下的，这里就简单贴一下代码，首先是 webpack.config.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="comment">//用于插入html模板</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="comment">//清除输出目录，免得每次手动删除</span></span><br><span class="line"><span class="keyword">const</span> CleanWebpackPlugin = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    index: path.join(__dirname, <span class="string">'index.js'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'/dist'</span>),</span><br><span class="line">    filename: <span class="string">'js/[name].[chunkhash:4].js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;&#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin([<span class="string">'dist'</span>]),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'index.html'</span>,</span><br><span class="line">      template: <span class="string">'index.html'</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">//持久化moduleId，主要是为了之后研究加载代码好看一点。</span></span><br><span class="line">    <span class="keyword">new</span> webpack.HashedModuleIdsPlugin(),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">      name: <span class="string">'manifest'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>之后是两个简单的 js 文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">'test is loaded'</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> test = <span class="built_in">require</span>(<span class="string">'./src/js/test'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test);</span><br></pre></td></tr></table></figure>
+<h2 id="从-index-js-开始看代码"><a href="#从-index-js-开始看代码" class="headerlink" title="从 index.js 开始看代码"></a>从 index.js 开始看代码</h2><p>先从打包后的 index.html 文件看看两个 JS 文件的加载顺序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/manifest.2730.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/index.5f4f.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，打包后 js 文件的加载顺序是先 manifest.js，之后才是 index.js，按理说应该先看 manifest.js 的内容的。然而这里先卖个关子，我们先看看 index.js 的内容是什么，这样可以带着问题去了解 manifest.js,也就是主流程的逻辑到底是怎样的，为何能做到模块化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line">webpackJsonp([<span class="number">0</span>], &#123;</span><br><span class="line">  <span class="string">"JkW7"</span>: (<span class="function"><span class="keyword">function</span>(<span class="params">module, exports, __webpack_require__</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> test = __webpack_require__(<span class="string">"zFrx"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(test);</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="string">"zFrx"</span>: (<span class="function"><span class="keyword">function</span>(<span class="params">module, exports</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> str = <span class="string">'test is loaded'</span>;</span><br><span class="line">    <span class="built_in">module</span>.exports = str;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;, [<span class="string">"JkW7"</span>]);</span><br></pre></td></tr></table></figure>
+<p>删去各种奇怪的注释后剩下这么点内容，首先应该关注到的是 webpackJsonp 这个函数，可以看见是不在任何命名空间下的，也就是 manifest.js 应该定义了一个挂在 window 下的全局函数，index.js 往这个函数传入三个参数并调用。</p>
+<p>第一个参数是数组，现在暂时还不清楚这个数组有什么作用。</p>
+<p>第二个参数是一个对象，对象内都是方法，这些方法看起来至少接受两个参数（名为 zFrx 的方法只有两个形参）。看一眼这两个方法的内部，其实看见了十分熟悉的东西， module.exports，尽管看不见 require， 但有一个样子类似的 <strong>webpack_require</strong>，这两个应该是模块化的关键，先记下这两个函数。</p>
+<p>第三个参数也是一个数组，也不清楚是有何作用的，但我们观察到它的值是 JkW7，与参数2中的某个方法的键是一致的，这可能存在某种逻辑关联。<br>至此，index.js 的内容算是过了一遍，接下来应当带着问题在 manifest.js 中寻找答案。</p>
+<h2 id="manifest-js-代码阅读"><a href="#manifest-js-代码阅读" class="headerlink" title="manifest.js 代码阅读"></a>manifest.js 代码阅读</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">modules</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>[<span class="string">"webpackJsonp"</span>] = <span class="function"><span class="keyword">function</span> <span class="title">webpackJsonpCallback</span>(<span class="params">chunkIds, moreModules, executeModules</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> moduleId, result;</span><br><span class="line">    <span class="keyword">for</span> (moduleId <span class="keyword">in</span> moreModules) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.hasOwnProperty.call(moreModules, moduleId)) &#123;</span><br><span class="line">        modules[moduleId] = moreModules[moduleId];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (executeModules) &#123;</span><br><span class="line">      <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; executeModules.length; i++) &#123;</span><br><span class="line">        result = __webpack_require__(executeModules[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> installedModules = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">__webpack_require__</span>(<span class="params">moduleId</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (installedModules[moduleId]) &#123;</span><br><span class="line">      <span class="keyword">return</span> installedModules[moduleId].exports;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">module</span> = installedModules[moduleId] = &#123;</span><br><span class="line">      exports: &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    modules[moduleId].call(<span class="built_in">module</span>.exports, <span class="built_in">module</span>, <span class="built_in">module</span>.exports, __webpack_require__);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span>.exports;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)([]);</span><br></pre></td></tr></table></figure>
+<p>首先应该看到的是，manifest.js 内部是一个 IIFE，就是自执行函数咯，这个函数会接受一个空数组作为参数，该数组被命名为 modules。之后看到我们在 index.js 中的猜想，果然在 window 上挂了一个名为 webpackJsonp 的函数。它接受的三个参数，分别名为chunkIds, moreModules, executeModules。对应了 index.js 中调用 webpackJsonp 时传入的三个参数。而 webpackJsonp 内究竟是有怎样的逻辑呢？<br><br><br>先不管定义的参数，webpackJsonp 先是 for in 遍历了一次 moreModules,将 moreModules 内的所有方法都存在 modules， 也就是自执行函数执行时传入的数组。<br>之后是一个条件判断：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (executeModules) &#123;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; executeModules.length; i++) &#123;</span><br><span class="line">    result = __webpack_require__(executeModules[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>判断 executeModules， 也就是第三个参数是否存在，如存在即执行 <strong>webpack_require</strong> 方法。在 index.js 调用 webpackJsonp 方法时，这个参数当然是存在的，因而要看看 <strong>webpack_require</strong> 方法是什么了。<br><strong>webpack_require</strong> 接受一个名为 moduleId 的参数。方法内部首先是一个条件判断，先不管。接下来看到赋值逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = installedModules[moduleId] = &#123;</span><br><span class="line">  exports: &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>结合刚才的条件判断，可以推测出 installedModules 是一个缓存的容器，那么前面的代码意思就是如果缓存中有对应的 moduleId,那么直接返回它的 exports，不然就定义并赋值一个吧。接着先偷看一下 <strong>webpack_require</strong> 的最后的返回值，可以看到函数返回的是 module.exports，那么 module.exports 又是如何被赋值的呢？ 看看之后的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modules[moduleId].call(<span class="built_in">module</span>.exports, <span class="built_in">module</span>, <span class="built_in">module</span>.exports, __webpack_require__);</span><br></pre></td></tr></table></figure></p>
+<p>刚才我们知道 modules[moduleId] 就是 moreModules 中的方法，此处就是将 this 指定为 module.exports，再把module, module.exports, <strong>webpack_require</strong> 传入去作为参数调用。这三个参数是不是很熟悉？之前我们看 index.js 里面代码时，有一个疑问就是模块化是如何实现的。这里我们已经看出了眉目。</p>
+<p>其实 webpack 就是将每一个 js 文件封装成一个函数，每个文件中的 require 方法对应的就是 <strong>webpack_require</strong>， <strong>webpack_require</strong> 会根据传入的 moduleId 再去加载对应的代码。而当我们想导出 js 文件的值时，要么用 module.exports，要么用 exports，这就对应了module, module.exports两个参数。少接触这块的童鞋，应该就能理解为何导出值时，直接使用 exports = xxx 会导出失败了。</p>
+<p>梳理一下打包后代码执行的流程，首先 minifest.js 会定义一个 webpackJsonp 方法，待其他打包后的文件（也可称为 chunk）调用。当调用 chunk 时，会先将该 chunk 中所有的 moreModules， 也就是每一个依赖的文件也可称为 module （如 test.js）存起来。之后通过 executeModules 判断这个文件是不是入口文件，决定是否执行第一次  <strong>webpack_require</strong>。而 <strong>webpack_require</strong> 的作用，就是根据这个 module 所 require 的东西，不断递归调用 <strong>webpack_require</strong>，<strong>webpack_require</strong>函数返回值后供 require 使用。当然，模块是不会重复加载的，因为 installedModules 记录着 module 调用后的 exports 的值，只要命中缓存，就返回对应的值而不会再次调用 module。webpack 打包后的文件，就是通过一个个函数隔离 module 的作用域，以达到不互相污染的目的。</p>
 
     
 
@@ -325,7 +261,11 @@ Welcome to GitLab, chping!
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -381,7 +321,7 @@ Welcome to GitLab, chping!
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/11/multiple-git-account/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/02/24/webpack-bundle/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -396,18 +336,18 @@ Welcome to GitLab, chping!
 
 <nav id="article-nav">
   
-    <a href="/2019/11/13/git-guide/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/24/splitchunk/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          git思维导图
+          SplitChunksPlugin
         
       </div>
     </a>
   
   
-    <a href="/2019/11/08/hocAndrenderProp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Render Props and HOC</div>
+    <a href="/2021/02/22/axios/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">axios cancelToken原理</div>
       <i class="icon-circle-right"></i>
     </a>
   
